@@ -1,0 +1,624 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+
+import kazmierskiImg from '~/assets/images/speakers2025/kazmierski.jpg';
+import campsImg from '~/assets/images/speakers2025/camps.png';
+import gottfriedsenImg from '~/assets/images/speakers2025/gottfriedsen.png';
+import lesauxImg from '~/assets/images/speakers2025/lesaux.png';
+import kariryaaImg from '~/assets/images/speakers2025/kariryaa.png';
+
+const speakers2025 = [
+  { name: 'Michal Kazmierski', affiliation: 'Google DeepMind', image: kazmierskiImg },
+  { name: 'Gustau Camps-Valls', affiliation: 'Universitat de València', image: campsImg },
+  { name: 'Julia Gottfriedsen', affiliation: 'OroraTech', image: gottfriedsenImg },
+  { name: 'Bertrand Le Saux', affiliation: 'European Commission', image: lesauxImg },
+  { name: 'Ankit Kariryaa', affiliation: 'University of Copenhagen', image: kariryaaImg },
+];
+
+const organizers2025 = [
+  { name: 'Loïc Landrieu', affiliation: 'ENPC' },
+  { name: 'Begüm Demir', affiliation: 'BIFOLD, TU Berlin' },
+  { name: 'Nico Lang', affiliation: 'University of Copenhagen' },
+  { name: 'Johannes Jakubik', affiliation: 'IBM' },
+  { name: 'Valerio Marsocci', affiliation: 'ESA Φ-lab' },
+  { name: 'Ruben Cartuyvels', affiliation: 'ESA Φ-lab' },
+  { name: 'Hui Zhang', affiliation: 'University of Copenhagen' },
+];
+
+const programCommittee2025 = [
+  'Benedikt Blumenstiel',
+  'Dimitri Gominski',
+  'Dino Ienco',
+  'Gencer Sumbul',
+  'Ghjulia Sialelli',
+  'Guillaume Astruc',
+  'Hui Zhang',
+  'Jan Dirk Wegner',
+  'Johannes Jakubik',
+  'Linus Scheibenreif',
+  'Loïc Landrieu',
+  'Lukas Drees',
+  'Marc Rußwurm',
+  'Mikolaj Czerkawski',
+  'Nico Lang',
+  'Nicolas Longépé',
+  'Peter Naylor',
+  'Riccardo D\'Ercole',
+  'Ruben Cartuyvels',
+  'Sander Jyhne',
+  'Steffen Knoblauch',
+  'Valerio Marsocci',
+  'Venkanna Babu Guthula',
+  'Vivien Sainte Fare Garnot',
+  'Yohann Perron',
+  'Zhitong Xiong',
+];
+
+const GH_BASE = 'https://github.com/REO-workshop/2025-EurIPS-REO-workshop/blob/main';
+
+const acceptedPapers = [
+  {
+    id: 1,
+    title: 'A decade of sea ice concentration retrieved from Sentinel-1',
+    authors: 'Wulf et al.',
+    paper: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5222853',
+    poster: `${GH_BASE}/posters/A_Wulf.pdf`,
+  },
+  {
+    id: 2,
+    title: 'A self-supervised multi-source framework and architecture for generative cross-sensor harmonization',
+    authors: 'Dauvilliers et al.',
+    paper: `${GH_BASE}/papers/A_Dauvilliers.pdf`,
+    poster: `${GH_BASE}/posters/A_Dauvilliers.pdf`,
+  },
+  {
+    id: 3,
+    title: 'A Vertical Vegetation Structure Model of Europe',
+    authors: 'Zhang et al.',
+    paper: `${GH_BASE}/papers/A_Zhang.pdf`,
+    poster: `${GH_BASE}/posters/A_Zhang.pdf`,
+  },
+  {
+    id: 4,
+    title: 'Altimeter and velocity data fusion for enhanced spatiotemporal resolution of the Ice Sheet elevation',
+    authors: 'Naylor et al.',
+    paper: `${GH_BASE}/papers/Altimeter_Naylor.pdf`,
+    poster: `${GH_BASE}/posters/Altimeter_Naylor.pdf`,
+  },
+  {
+    id: 5,
+    title: 'Beyond Building Footprints: Probing DINOv3 to Map Roof Material and Geometry',
+    authors: 'Guthula et al.',
+    paper: `${GH_BASE}/papers/Beyond_Guthula.pdf`,
+    poster: `${GH_BASE}/posters/Beyond_Guthula.pdf`,
+  },
+  {
+    id: 6,
+    title: 'Collaborative Unpaired Multimodal Representation Learning for Satellite Imagery',
+    authors: 'Maurya et al.',
+    poster: `${GH_BASE}/posters/Collaborative_Maurya.pdf`,
+  },
+  {
+    id: 7,
+    title: 'Cryo2S1: Cross-Sensor Representation Learning for Sea Ice Radar Freeboard and Leads in Sentinel-1 SAR',
+    authors: 'Stokholm et al.',
+    paper: `${GH_BASE}/papers/Cryo2S1_Stokholm.pdf`,
+    poster: `${GH_BASE}/posters/Cryo2S1_Stokholm.pdf`,
+  },
+  {
+    id: 8,
+    title: 'EoS-FM: Can an Ensemble of Specialist Models act as a Generalist Feature Extractor?',
+    authors: 'Adorni et al.',
+    paper: `${GH_BASE}/papers/EoS_Adorni.pdf`,
+    poster: `${GH_BASE}/posters/EoS_Adorni.pdf`,
+  },
+  {
+    id: 9,
+    title: 'Gold Exploration using Representations from a Multispectral Autoencoder',
+    authors: 'Tsantalidou et al.',
+    paper: `${GH_BASE}/papers/Gold_Tsantalidou.pdf`,
+    poster: `${GH_BASE}/posters/Gold_Tsantalidou.pdf`,
+  },
+  {
+    id: 10,
+    title: 'GOMAA-Geo: Goal Modality Agnostic Active Geo-localization',
+    authors: 'Sarkar et al.',
+    paper: 'https://papers.nips.cc/paper_files/paper/2024/file/bd8b52c2fefdb37e3b3953a37408e9dc-Paper-Conference.pdf',
+    poster: `${GH_BASE}/posters/Gomaa_Sarkar.pdf`,
+  },
+  {
+    id: 11,
+    title: 'Harnessing Multi-Modal Co-learning for Missing Earth Observation Modalities',
+    authors: 'Mena et al.',
+    paper: `${GH_BASE}/papers/Harnessing_Mena.pdf`,
+    poster: `${GH_BASE}/posters/Harnessing_Mena.pdf`,
+  },
+  {
+    id: 12,
+    title: 'HELM: Hierarchical and Explicit Label Modeling with Graph Learning for Multi-Label Image Classification',
+    authors: 'Stoimchev et al.',
+    paper: `${GH_BASE}/papers/HELM_Stoimchev.pdf`,
+  },
+  {
+    id: 13,
+    title: 'Latent Field Reduction of Earth Observation Foundation Model',
+    authors: 'Uebbing et al.',
+    paper: `${GH_BASE}/papers/Latent_Uebbing.pdf`,
+    poster: `${GH_BASE}/posters/Latent_Uebbing.pdf`,
+  },
+  {
+    id: 14,
+    title: 'Learned Image Compression for Earth Observation: Implications for Downstream Segmentation Tasks',
+    authors: 'Mollière et al.',
+    paper: `${GH_BASE}/papers/Learned_Molli%C3%A8re.pdf`,
+    poster: `${GH_BASE}/posters/Learned_Molli%C3%A8re.pdf`,
+  },
+  {
+    id: 15,
+    title: 'LEPA: Learning Geometric Equivariance in Earth Observation with a Predictive Architecture',
+    authors: 'Scheurer et al.',
+    paper: `${GH_BASE}/papers/LEPA_Scheurer.pdf`,
+  },
+  {
+    id: 16,
+    title: 'Leveraging Compact Satellite Embeddings and Graph Neural Networks for Large-Scale Poverty Mapping',
+    authors: 'Pettersson et al.',
+    paper: `${GH_BASE}/papers/Leveraging_Pettersson.pdf`,
+  },
+  {
+    id: 17,
+    title: 'M3DRS: Multi-Modal Multispectral Dataset for Remote Sensing',
+    authors: 'Li et al.',
+    paper: `${GH_BASE}/papers/M3DRS_Li.pdf`,
+    poster: `${GH_BASE}/posters/M3DRS_Li.pdf`,
+  },
+  {
+    id: 18,
+    title: 'MAPLE: Multi-Path Adaptive Propagation with Level-Aware Embeddings for Hierarchical Multi-Label Image Classification',
+    authors: 'Koloski et al.',
+    paper: `${GH_BASE}/papers/MAPLE_Koloski.pdf`,
+  },
+  {
+    id: 19,
+    title: 'Mixture of Geographical Experts: Disentangling Earth',
+    authors: 'Rangzan et al.',
+    paper: `${GH_BASE}/papers/Mixture_Rangzan.pdf`,
+    poster: `${GH_BASE}/posters/Mixture_Rangzan.pdf`,
+  },
+  {
+    id: 20,
+    title: 'NeurEO: Dissecting Earth Observation embeddings with computational neuroscience',
+    authors: 'Plas et al.',
+    paper: `${GH_BASE}/papers/NeurEO_Plas.pdf`,
+  },
+  {
+    id: 21,
+    title: 'On-the-Fly OVD Adaptation with FLAME: Few-shot Localization via Active Marginal-Samples Exploration',
+    authors: 'Refael et al.',
+    paper: `${GH_BASE}/papers/On_Refael.pdf`,
+    poster: `${GH_BASE}/posters/On_Refael.pdf`,
+  },
+  {
+    id: 22,
+    title: 'Overlap-Free Modality Generalization in Remote Sensing Foundation Models',
+    authors: 'Zhambulova et al.',
+    paper: `${GH_BASE}/papers/Overlap_Zhambulova.pdf`,
+    poster: `${GH_BASE}/posters/Overlap_Zhambulova.pdf`,
+  },
+  {
+    id: 23,
+    title: "SatOSM: Training geospatial foundation models with the Earth's largest open ground truth",
+    authors: 'Zhang et al.',
+    paper: `${GH_BASE}/papers/SatOSM_Zhang.pdf`,
+    poster: `${GH_BASE}/posters/SatOSM_Zhang.pdf`,
+  },
+  {
+    id: 24,
+    title: 'Scalable Geospatial Data Generation Using AlphaEarth Foundations',
+    authors: 'Houriez et al.',
+    paper: 'https://www.climatechange.ai/papers/neurips2025/56',
+    poster: `${GH_BASE}/posters/Scalable_Houriez.pdf`,
+  },
+  {
+    id: 25,
+    title: 'SenForFlood: A Global Dataset for Flood Mapping',
+    authors: 'Matosak et al.',
+    paper: 'https://isprs-archives.copernicus.org/articles/XLVIII-M-7-2025/97/2025/',
+    poster: `${GH_BASE}/posters/SenForFlood_Matosak.pdf`,
+  },
+  {
+    id: 26,
+    title: 'SHRUG-FM: Reliability-Aware Foundation Models for Earth Observation',
+    authors: 'Cohrs et al.',
+    paper: `${GH_BASE}/papers/SHRUG_Cohrs.pdf`,
+    poster: `${GH_BASE}/posters/SHRUG_Cohrs.pdf`,
+  },
+  {
+    id: 27,
+    title: 'SkyCap: Bitemporal VHR Optical–SAR Quartets for Amplitude Change Detection and Foundation-Model Evaluation',
+    authors: 'Weinmann et al.',
+    paper: `${GH_BASE}/papers/SkyCap_Weinmann.pdf`,
+    poster: `${GH_BASE}/posters/SkyCap_Weinmann.pdf`,
+  },
+  {
+    id: 28,
+    title: 'SuperF: Neural Implicit Fields for Multi-Image Super-Resolution',
+    authors: 'Jyhne et al.',
+    paper: `${GH_BASE}/papers/SuperF_Jyhne.pdf`,
+  },
+  {
+    id: 29,
+    title: 'Towards Methane Detection On Board Satellites',
+    authors: 'Chen et al.',
+    paper: `${GH_BASE}/papers/Towards_Chen.pdf`,
+    video: 'https://m.youtube.com/watch?v=qHLL4WnPkK0',
+  },
+  {
+    id: 30,
+    title: 'Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection',
+    authors: 'Senneville et al.',
+    paper: `${GH_BASE}/papers/Towards_Senneville.pdf`,
+  },
+  {
+    id: 31,
+    title: 'MoTiF: a self-supervised model for multi-source forecasting with application to tropical cyclones',
+    authors: '',
+    paper: 'https://www.cambridge.org/core/journals/environmental-data-science/article/motif-a-selfsupervised-model-for-multisource-forecasting-with-application-to-tropical-cyclones/489085C5B41E673D1480273C2F55D01C',
+  },
+  {
+    id: 32,
+    title: 'Open-Canopy: Towards Very High Resolution Forest Monitoring',
+    authors: 'Fogel et al. (CVPR 2025)',
+    paper: 'https://openaccess.thecvf.com/content/CVPR2025/html/Fogel_Open-Canopy_Towards_Very_High_Resolution_Forest_Monitoring_CVPR_2025_paper.html',
+  },
+  {
+    id: 33,
+    title: 'Fused Foundation Model Embeddings for Earth Observation Compression: A Winning Solution to the Embed2Scale Challenge',
+    authors: 'Kerekes et al.',
+    paper: `${GH_BASE}/papers/Fused_Kerekes.pdf`,
+    poster: `${GH_BASE}/posters/Fused_Kerekes.pdf`,
+  },
+];
+
+const topics2025 = [
+  'Machine Learning and AI for EO — self-supervised, multimodal, domain-adaptive, continual/online learning, foundation models, human-in-the-loop, active learning',
+  'Physics-based and Hybrid Modeling — Radiative Transfer Models, hybrid AI–physics for parameter retrieval and uncertainty quantification',
+  'Ecology and Environmental Monitoring — land use/cover change, biodiversity, phenology, biomass, canopy height, soil/vegetation condition',
+  'Remote Sensing and Satellite Data Processing — multispectral, SAR, LiDAR, hyperspectral; multi-resolution fusion; temporal change detection; cross-sensor harmonization',
+  'Embeddings and Compression — learned representations, semantic compression for large EO archives',
+  'Earth Science Applications — geophysical parameter estimation, urban/rural mapping, geohazards (floods, landslides, volcanic activity)',
+  'Data Curation, Bias, and Accessibility — globally representative datasets, bias mitigation, open benchmarks',
+  'Technical and Use Case Innovations — novel architectures, training strategies, pipelines',
+];
+
+const metadata = {
+  title: 'REO-1 (2025) — 1st Workshop on Advances in Representation Learning for Earth Observation',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Header -->
+  <section class="relative pt-24 md:pt-32 pb-12 md:pb-16 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">2025 edition · Archive</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-3 mb-4">
+        1st Workshop on Advances in <span class="text-primary">Representation Learning for Earth Observation</span>
+      </h1>
+      <p class="text-lg md:text-xl text-muted max-w-3xl mx-auto">
+        EurIPS 2025 · December 7, 2025 · University of Copenhagen, Denmark
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+        <a href="https://sites.google.com/view/reoeurips" target="_blank" rel="noopener" class="text-primary underline">Original site ↗</a>
+        <a href="https://github.com/REO-workshop/2025-EurIPS-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">Papers & posters on GitHub ↗</a>
+        <a href="https://www.youtube.com/@advances-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">Keynote recordings on YouTube ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 text-center">
+          <div class="text-4xl font-bold text-primary">117</div>
+          <p class="text-sm text-muted mt-1">Registered participants</p>
+        </div>
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 text-center">
+          <div class="text-4xl font-bold text-primary">33</div>
+          <p class="text-sm text-muted mt-1">Poster presentations</p>
+        </div>
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 text-center">
+          <div class="text-4xl font-bold text-primary">5</div>
+          <p class="text-sm text-muted mt-1">Oral presentations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">About REO-1</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2 mb-6">
+        Uniting ML, computer vision, and Earth sciences
+      </h2>
+      <div class="space-y-4 text-lg text-muted">
+        <p>
+          The first REO workshop brought together researchers from machine learning, computer
+          vision, and Earth sciences to advance robust, interpretable, and scalable models for
+          monitoring our planet. It addressed opportunities arising from large-scale multimodal
+          EO data and foundation models, fostering cross-disciplinary exchange between academia,
+          industry, and policy.
+        </p>
+        <p>
+          Recent developments discussed included Google DeepMind's AlphaEarth, IBM–ESA's TerraMind,
+          AllenAI's Earth System, and Meta's DINOv3.
+        </p>
+        <div class="pl-4 border-l-4 border-primary/40 italic text-base">
+          <p class="mb-2">Three guiding questions framed the workshop:</p>
+          <ol class="list-decimal list-inside space-y-1 not-italic">
+            <li>Where are we, and how can we move forward as a community?</li>
+            <li>What are the open challenges in learning representations of EO data?</li>
+            <li>In the era of general-purpose one-for-all models, what is the role of specialized approaches?</li>
+          </ol>
+        </div>
+        <p class="text-sm">
+          <strong>Venue:</strong> University of Copenhagen South Campus, Njalsgade 76,
+          Auditorium 4A.0.69, ground floor, 2300 København S. Not at the main EurIPS venue;
+          closest metro station: Islands Brygge.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call for Papers -->
+  <section class="py-12 md:py-16 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Call for Papers</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2 mb-6">
+        Two submission tracks
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+          <h3 class="text-xl font-bold mb-2">Track 1 — Novel unpublished work</h3>
+          <p class="text-muted">
+            Up to <strong>4 pages single column</strong> (excluding references) using the NeurIPS
+            template. Short supplementary material allowed.
+            <strong>Double-blind</strong>, non-archival.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+          <h3 class="text-xl font-bold mb-2">Track 2 — Recently published work</h3>
+          <p class="text-muted">
+            Papers published after NeurIPS 2024 could be submitted as-is.
+            <strong>Single-blind</strong> (anonymous reviewers only).
+          </p>
+        </div>
+      </div>
+
+      <p class="text-muted mb-6">
+        Accepted contributions were presented as posters; authors could indicate interest in a
+        10-minute oral talk.
+      </p>
+
+      <h3 class="text-xl font-bold mb-3">Timeline</h3>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 dark:border-slate-700">
+              <th class="py-3 pr-4 font-semibold">Milestone</th>
+              <th class="py-3 font-semibold">Date (AoE)</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-slate-100 dark:border-slate-800">
+              <td class="py-3 pr-4">Submission deadline</td>
+              <td class="py-3">Oct 15 → extended to Oct 20, 2025</td>
+            </tr>
+            <tr class="border-b border-slate-100 dark:border-slate-800">
+              <td class="py-3 pr-4">Notification of acceptance</td>
+              <td class="py-3">Oct 31, 2025</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4">Camera-ready</td>
+              <td class="py-3">Nov 28, 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-xl font-bold mb-3">Topics of Interest</h3>
+      <ul class="space-y-2 text-muted">
+        {topics2025.map((t) => <li>· {t}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Invited Speakers -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 md:mb-10 text-center">
+        <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Invited Speakers</p>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2">Keynotes</h2>
+      </div>
+
+      <!-- Top row: 3 speakers -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {speakers2025.slice(0, 3).map((s) => (
+          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <Image
+                src={s.image}
+                alt={s.name}
+                width={600}
+                height={600}
+                layout="constrained"
+                widths={[300, 600, 900]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold">{s.name}</h3>
+              <p class="text-sm text-primary dark:text-blue-300 font-medium">{s.affiliation}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom row: 2 speakers centered -->
+      <div class="flex flex-wrap justify-center gap-6 mt-6">
+        {speakers2025.slice(3).map((s) => (
+          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <Image
+                src={s.image}
+                alt={s.name}
+                width={600}
+                height={600}
+                layout="constrained"
+                widths={[300, 600, 900]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold">{s.name}</h3>
+              <p class="text-sm text-primary dark:text-blue-300 font-medium">{s.affiliation}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-sm text-muted text-center mt-8">
+        Recordings available on the
+        <a href="https://www.youtube.com/@advances-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">workshop YouTube channel</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Accepted Papers -->
+  <section class="py-12 md:py-16 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 md:mb-10">
+        <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Program</p>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2">Accepted Papers</h2>
+        <p class="text-muted mt-3">
+          33 papers were presented at the workshop (28 novel works, 5 recent works, 5 as orals).
+          Papers, posters, and videos are archived on
+          <a href="https://github.com/REO-workshop/2025-EurIPS-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">GitHub</a>.
+        </p>
+      </div>
+
+      <ul class="space-y-2">
+        {acceptedPapers.map((p) => (
+          <li class="flex items-start gap-4 rounded-md bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-700">
+            <span class="font-mono text-sm text-primary dark:text-blue-300 whitespace-nowrap pt-0.5 min-w-[2.5rem]">#{p.id}</span>
+            <div class="flex-1">
+              <p class="text-base font-medium">{p.title}</p>
+              {p.authors && <p class="text-sm text-muted mt-0.5">{p.authors}</p>}
+              <div class="flex flex-wrap gap-2 mt-2">
+                {p.paper && (
+                  <a
+                    href={p.paper}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-xs px-2 py-1 rounded bg-blue-50 hover:bg-blue-100 text-primary dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-blue-300 border border-blue-100 dark:border-slate-700"
+                  >
+                    Paper
+                  </a>
+                )}
+                {p.poster && (
+                  <a
+                    href={p.poster}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-xs px-2 py-1 rounded bg-blue-50 hover:bg-blue-100 text-primary dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-blue-300 border border-blue-100 dark:border-slate-700"
+                  >
+                    Poster
+                  </a>
+                )}
+                {p.video && (
+                  <a
+                    href={p.video}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-xs px-2 py-1 rounded bg-blue-50 hover:bg-blue-100 text-primary dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-blue-300 border border-blue-100 dark:border-slate-700"
+                  >
+                    Video
+                  </a>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Organizers -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 md:mb-10 text-center">
+        <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Team</p>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2">Organizers</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {organizers2025.map((o) => (
+          <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5">
+            <p class="font-semibold">{o.name}</p>
+            <p class="text-sm text-muted mt-1">{o.affiliation}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <details class="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span>Program Committee</span>
+            <span class="text-sm text-muted group-open:hidden">Show</span>
+            <span class="text-sm text-muted hidden group-open:inline">Hide</span>
+          </summary>
+          <p class="text-sm text-muted mt-4">
+            Thanks to the Program Committee for reviewing submissions to REO-1.
+          </p>
+          <ul class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-1 text-sm text-muted">
+            {programCommittee2025.map((pc) => <li>· <span class="text-gray-900 dark:text-gray-100 font-medium">{pc}</span></li>)}
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="text-2xl font-bold mb-3">Contact</h3>
+      <p class="text-muted">
+        General inquiries: <a href="mailto:contact@eurips.cc" class="text-primary underline">contact@eurips.cc</a>
+      </p>
+      <p class="text-sm text-muted mt-4">
+        Submissions were handled via
+        <a href="https://cmt3.research.microsoft.com/REO2025/" target="_blank" rel="noopener" class="text-primary underline">Microsoft CMT</a>.
+        Peer review platform provided at no cost by Microsoft.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA back to REO-2 -->
+  <section class="py-12 md:py-16 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold leading-tight tracking-tighter mb-4">
+        Continuing at NeurIPS 2026
+      </h2>
+      <p class="text-lg text-muted mb-6">
+        The second edition takes place in Paris, France · Dec 11 / 12, 2026.
+      </p>
+      <a href="/" class="btn-primary py-3 px-8 font-semibold">Visit REO 2026 →</a>
+    </div>
+  </section>
+</Layout>

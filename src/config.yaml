@@ -1,0 +1,62 @@
+site:
+  name: REO-2
+  site: 'https://reo-workshop.org'
+  base: '/'
+  trailingSlash: false
+
+metadata:
+  title:
+    default: 'REO-2 — 2nd Workshop on Advances in Representation Learning for Earth Observation'
+    template: '%s — REO-2'
+  description: 'The 2nd Workshop on Advances in Representation Learning for Earth Observation (REO-2), co-located with NeurIPS 2026 in Paris.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: REO-2
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 6
+    post:
+      isEnabled: false
+      permalink: '/%slug%'
+      robots:
+        index: false
+    list:
+      isEnabled: false
+      pathname: 'blog'
+      robots:
+        index: false
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: false
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 0
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'system'
