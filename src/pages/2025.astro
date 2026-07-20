@@ -299,8 +299,20 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="header">
+    <header class="sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 grid grid-cols-3 items-center">
+        <a href="/2025" class="font-bold text-lg tracking-tight">REO 2025</a>
+        <a href="/2026" class="text-center text-sm md:text-base text-primary hover:underline font-medium">
+          The 2026 edition will be held at NeurIPS in Paris!
+        </a>
+        <div></div>
+      </div>
+    </header>
+  </Fragment>
+
   <!-- Header -->
-  <section class="relative pt-24 md:pt-32 pb-12 md:pb-16 bg-blue-50 dark:bg-transparent">
+  <section class="relative pt-10 md:pt-14 pb-12 md:pb-16 bg-blue-50 dark:bg-transparent">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">2025 edition · Archive</p>
       <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-3 mb-4">
@@ -310,7 +322,6 @@ const metadata = {
         EurIPS 2025 · December 7, 2025 · University of Copenhagen, Denmark
       </p>
       <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-        <a href="https://sites.google.com/view/reoeurips" target="_blank" rel="noopener" class="text-primary underline">Original site ↗</a>
         <a href="https://github.com/REO-workshop/2025-EurIPS-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">Papers & posters on GitHub ↗</a>
         <a href="https://www.youtube.com/@advances-REO-workshop" target="_blank" rel="noopener" class="text-primary underline">Keynote recordings on YouTube ↗</a>
       </div>
@@ -331,7 +342,7 @@ const metadata = {
         </div>
         <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 text-center">
           <div class="text-4xl font-bold text-primary">5</div>
-          <p class="text-sm text-muted mt-1">Oral presentations</p>
+          <p class="text-sm text-muted mt-1">Keynotes</p>
         </div>
       </div>
     </div>
