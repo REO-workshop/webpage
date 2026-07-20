@@ -22,7 +22,7 @@ export const footerData = {
   secondaryLinks: [],
   socialLinks: [],
   footNote: `
-    2nd Workshop on Advances in Representation Learning for Earth Observation · NeurIPS 2026, Paris ·
+    Workshop on Advances in Representation Learning for Earth Observation · NeurIPS 2026, Paris ·
     Built with <a class="text-blue-600 underline dark:text-muted" href="https://astrowind.vercel.app/" target="_blank" rel="noopener">AstroWind</a> — thanks to the template authors.
   `,
 };
