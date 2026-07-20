@@ -2,10 +2,10 @@ import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    { text: 'Call for Papers', href: getPermalink('/#call-for-papers') },
-    { text: 'Speakers', href: getPermalink('/#speakers') },
-    { text: 'Schedule', href: getPermalink('/#schedule') },
-    { text: 'Organizers', href: getPermalink('/#organizers') },
+    { text: 'Call for Papers', href: getPermalink('/2026#call-for-papers') },
+    { text: 'Speakers', href: getPermalink('/2026#speakers') },
+    { text: 'Schedule', href: getPermalink('/2026#schedule') },
+    { text: 'Organizers', href: getPermalink('/2026#organizers') },
     { text: '2025 edition', href: getPermalink('/2025') },
   ],
   actions: [
