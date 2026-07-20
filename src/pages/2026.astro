@@ -1,0 +1,444 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Image from '~/components/common/Image.astro';
+
+import parisS2 from '~/assets/images/paris_s2.jpg';
+import lealtaixeImg from '~/assets/images/speakers/lealtaixe.jpg';
+import carvalhaisImg from '~/assets/images/speakers/carvalhais.png';
+import campbellImg from '~/assets/images/speakers/campbell.png';
+import klemmerImg from '~/assets/images/speakers/klemmer.jpg';
+import schindlerImg from '~/assets/images/speakers/schindler.jpeg';
+
+const speakers = [
+  {
+    name: 'Laura Leal-Taixé',
+    affiliation: 'NVIDIA / U. Toronto',
+    image: lealtaixeImg,
+    bio: 'Senior Research Manager leading the Dynamic Vision and Learning group. Recipient of the Sofja Kovalevskaja Award, Google Faculty Award, and an ERC Starting Grant. General Chair of ECCV 2024 and ACCV 2026.',
+  },
+  {
+    name: 'Nuno Carvalhais',
+    affiliation: 'Max Planck Institute for Biogeochemistry',
+    image: carvalhaisImg,
+    bio: 'Group Leader and ELLIS Scholar in Machine Learning for Earth and Climate Science. Works on terrestrial ecosystem dynamics, biogeochemical cycles, and climate–biosphere interactions.',
+  },
+  {
+    name: 'Jacqueline Campbell',
+    affiliation: 'Asterisk Labs',
+    image: campbellImg,
+    bio: 'Schmidt Science Fellow and co-founder at Asterisk Labs. Studies cloud properties in overlooked satellite imagery and AI tooling for accessible Earth-scale environmental data.',
+  },
+  {
+    name: 'Konstantin Klemmer',
+    affiliation: 'LGND AI / UCL (incoming)',
+    image: klemmerImg,
+    bio: 'Machine learning researcher at LGND AI and incoming Assistant Professor at UCL. Works on geospatial foundation models, self-supervised learning, and location embeddings.',
+  },
+  {
+    name: 'Konrad Schindler',
+    affiliation: 'ETH Zürich',
+    image: schindlerImg,
+    bio: 'Professor of Photogrammetry and Remote Sensing at ETH Zürich. Research focuses on visual AI, remote sensing, and 3D computer vision, with contributions to global-scale mapping products at the intersection of geometric CV and EO.',
+  },
+];
+
+const scheduleMorning = [
+  { time: '09:00 – 09:15', title: 'Welcome' },
+  { time: '09:15 – 09:45', title: 'Keynote 1 — Laura Leal-Taixé' },
+  { time: '09:45 – 10:15', title: 'Keynote 2 — Nuno Carvalhais' },
+  { time: '10:15 – 10:45', title: 'Keynote 3 — Jacqueline Campbell' },
+  { time: '10:45 – 11:00', title: 'Coffee Break' },
+  { time: '11:00 – 11:30', title: 'Oral Presentations' },
+  { time: '11:30 – 12:30', title: 'Poster Session 1' },
+  { time: '12:30 – 13:30', title: 'Lunch Break' },
+];
+
+const scheduleAfternoon = [
+  { time: '13:30 – 14:00', title: 'Keynote 4 — Konstantin Klemmer' },
+  { time: '14:00 – 14:30', title: 'Keynote 5 — Konrad Schindler' },
+  { time: '14:30 – 15:30', title: 'Poster Session 2' },
+  { time: '15:30 – 16:00', title: 'Coffee Break' },
+  { time: '16:00 – 17:00', title: 'Panel Discussion & Q&A' },
+  { time: '17:00 – 17:15', title: 'Closing Remarks' },
+];
+
+const organizers = [
+  { name: 'Loïc Landrieu', affiliation: 'ENPC (IMAGINE / LIGM), IGN–LASTIG' },
+  { name: 'Nico Lang', affiliation: 'University of Copenhagen, Pioneer Centre for AI' },
+  { name: 'Benedikt Blumenstiel', affiliation: 'IBM Research / ETH Zürich' },
+  { name: 'Ruben Cartuyvels', affiliation: 'ESA Φ-lab, Earth System Science Hub' },
+  { name: 'Nikolaos Ioannis Bountos', affiliation: 'ESA Φ-lab' },
+  { name: 'Gustau Camps-Valls', affiliation: 'Universitat de València' },
+  { name: 'Xiaoxiang Zhu', affiliation: 'TU Munich' },
+  { name: 'Ioannis Papoutsis', affiliation: 'NTU Athens, National Observatory of Athens' },
+];
+
+const programCommittee = [
+  'Begüm Demir (TU Berlin/BIFOLD)',
+  'Jocelyn Chanussot (INRIA)',
+  'Charlotte Pelletier (UBS Vannes)',
+  'Dino Ienco (INRAE)',
+  'Ronny Hänsch (DLR)',
+  'Behnood Rasti (BIFOLD/TU Berlin)',
+  'Gencer Sumbul (EPFL)',
+  'Ribana Roscher (U. Bonn)',
+  'Mikolaj Czerkawski (Asterisk Labs)',
+  'Nicolas Longépé (ESA)',
+  'Johannes Jakubik (IBM)',
+  'Franziska Gerken (NVIDIA)',
+  'Valerio Marsocci (ESA)',
+];
+
+const metadata = {
+  title: 'REO-2 — 2nd Workshop on Advances in Representation Learning for Earth Observation',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline='<span class="text-blue-300 dark:text-blue-300">NeurIPS 2026 · Paris, France · Dec 11 / 12</span>'
+    actions={[
+      { variant: 'primary', text: 'Call for Papers', href: '#call-for-papers' },
+      {
+        variant: 'secondary',
+        text: 'Speakers',
+        href: '#speakers',
+        class: '!bg-slate-200 hover:!bg-slate-300 !text-slate-900 !border-slate-200 hover:!border-slate-300 dark:!bg-slate-200 dark:hover:!bg-slate-300 dark:!text-slate-900 dark:!border-slate-200',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute -top-[76px] left-0 right-0 bottom-0 overflow-hidden">
+        <Image
+          src={parisS2}
+          alt="Sentinel-2 satellite image of Paris"
+          width={2400}
+          height={1200}
+          widths={[800, 1600, 2400]}
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+          layout="cover"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-900/60 to-slate-900/85 dark:from-slate-950/85 dark:via-slate-950/70 dark:to-slate-950/90"></div>
+      </div>
+      <p class="absolute bottom-2 right-3 text-[10px] text-white/70 z-10">
+        Credit: ESA, European Union
+      </p>
+    </Fragment>
+
+    <Fragment slot="title">
+      <span class="text-white drop-shadow-lg">2nd Workshop on Advances in <span class="text-blue-300">Representation Learning for Earth Observation</span></span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="text-slate-100">
+        Bringing together machine learning, computer vision, and Earth sciences to advance
+        robust, interpretable, and scalable models for monitoring and predicting our planet.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- About -->
+  <section id="about" class="scroll-mt-16 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">About REO</p>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2 mb-6">
+        A forum for representation learning in Earth Observation
+      </h2>
+      <div class="space-y-4 text-lg text-muted">
+        <p>
+          The second edition of the Representation Learning for Earth Observation (REO)
+          workshop brings together researchers and practitioners from machine learning,
+          computer vision, and Earth sciences. With the growing availability of large-scale,
+          multimodal EO data and the rise of powerful foundation models, new opportunities
+          emerge for integrating data-driven approaches across sensing
+          modalities and application domains.
+        </p>
+        <p>
+          REO provides a venue for novel technical methods, scientific applications,
+          and system-level innovations — fostering exchange between academia and industry,
+          and policy stakeholders.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call for Papers -->
+  <section id="call-for-papers" class="scroll-mt-16">
+    <Features
+      tagline="Call for Papers"
+      title="Topics of Interest"
+      subtitle="We invite contributions spanning technical methods, scientific applications, and system-level innovations across EO, environmental monitoring, and related Earth sciences."
+      columns={3}
+      items={[
+        {
+          title: 'Machine Learning for EO',
+          description:
+            'Domain-adaptive models; continual and online learning; multi-modal fusion; human-in-the-loop and active learning strategies.',
+          icon: 'tabler:brain',
+        },
+        {
+          title: 'EO Foundation Models',
+          description:
+            'Training paradigms, evaluation and interpretability, uncertainty quantification, and causal modeling for EO foundation models.',
+          icon: 'tabler:cube',
+        },
+        {
+          title: 'Embeddings & Compression',
+          description:
+            'Encodings for efficient storage, retrieval, and search in large EO archives; semantic compression for scalable analysis.',
+          icon: 'tabler:database',
+        },
+        {
+          title: 'Physics-based & Hybrid Modeling',
+          description:
+            'Integration of Radiative Transfer Models and other physical simulators into ML pipelines; hybrid AI–physics parameter retrieval.',
+          icon: 'tabler:atom',
+        },
+        {
+          title: 'Earth Science & Ecology Applications',
+          description:
+            'Geophysical parameter estimation, urban and rural mapping, weather/climate forecasting, geohazards, biodiversity, soil and vegetation.',
+          icon: 'tabler:plant',
+        },
+        {
+          title: 'Data, Benchmarks & Accessibility',
+          description:
+            'Multimodal data handling, cross-sensor harmonization, representative datasets, bias mitigation, open benchmarks.',
+          icon: 'tabler:chart-dots',
+        },
+      ]}
+    />
+
+    <!-- Tracks + dates -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+          <h3 class="text-xl font-bold mb-2">Research Track</h3>
+          <p class="text-muted">
+            Non-archival short papers of up to <strong>4 pages</strong> presenting novel research,
+            preliminary results, new datasets, benchmarks, or emerging ideas.
+            <strong>Double-blind</strong> peer review. No formal proceedings.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+          <h3 class="text-xl font-bold mb-2">Highlights Track</h3>
+          <p class="text-muted">
+            Papers published after NeurIPS 2025 at major ML/CV venues, relevant to EO and
+            geospatial AI. Submit the published paper with a short summary (max one page)
+            explaining its relevance. <strong>Single-blind</strong> review.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex justify-center">
+        <a
+          href="#"
+          class="btn-primary py-3 px-8 font-semibold text-base"
+        >
+          Submission
+        </a>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-2xl font-bold mb-4">Important Dates</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 pr-4 font-semibold">Milestone</th>
+                <th class="py-3 font-semibold">Date (AoE)</th>
+              </tr>
+            </thead>
+            <tbody class="text-muted">
+              <tr class="border-b border-slate-100 dark:border-slate-800">
+                <td class="py-3 pr-4">Submission deadline</td><td class="py-3">Aug 29, 2026</td>
+              </tr>
+              <tr class="border-b border-slate-100 dark:border-slate-800">
+                <td class="py-3 pr-4">Notification</td><td class="py-3">Sep 29, 2026</td>
+              </tr>
+              <tr class="border-b border-slate-100 dark:border-slate-800">
+                <td class="py-3 pr-4">Camera-ready</td><td class="py-3">Oct 29, 2026</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4">Workshop day</td><td class="py-3">Dec 11 / 12, 2026 — Paris</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-muted mt-4">
+          In-person presentation is required.          
+        </p>
+        <p class="text-sm text-muted mt-4">
+          Submissions and reviews will be handled through the <strong>CMT</strong> platform. This service is provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.          
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers — 3 on top row, 2 centered on second row -->
+  <section id="speakers" class="scroll-mt-16 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 md:mb-12 text-center">
+        <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Invited Speakers</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2">Keynotes</h2>
+        <p class="max-w-3xl mx-auto mt-4 text-xl text-muted">
+          Five speakers representing the diversity of the EO community — spanning academia, industry, ML, and Earth sciences.
+        </p>
+      </div>
+
+      <!-- Top row: 3 speakers -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {speakers.slice(0, 3).map((s) => (
+          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <Image
+                src={s.image}
+                alt={s.name}
+                width={600}
+                height={600}
+                layout="constrained"
+                widths={[300, 600, 900]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold">{s.name}</h3>
+              <p class="text-sm text-primary dark:text-blue-300 font-medium mb-2">{s.affiliation}</p>
+              <p class="text-sm text-muted">{s.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom row: 2 speakers centered -->
+      <div class="flex flex-wrap justify-center gap-6 mt-6">
+        {speakers.slice(3).map((s) => (
+          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <Image
+                src={s.image}
+                alt={s.name}
+                width={600}
+                height={600}
+                layout="constrained"
+                widths={[300, 600, 900]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold">{s.name}</h3>
+              <p class="text-sm text-primary dark:text-blue-300 font-medium mb-2">{s.affiliation}</p>
+              <p class="text-sm text-muted">{s.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule" class="scroll-mt-16 py-16 md:py-20 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 md:mb-12 text-center">
+        <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Program</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2">Provisional Schedule</h2>
+        <p class="max-w-3xl mx-auto mt-4 text-xl text-muted">
+          Keynotes, orals, two poster sessions, and a panel – 100% of talks in person.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Morning</h3>
+          <ul class="space-y-3">
+            {scheduleMorning.map((item) => (
+              <li class="flex items-start gap-4 rounded-md bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-700">
+                <span class="font-mono text-sm text-primary dark:text-blue-300 whitespace-nowrap pt-0.5">{item.time}</span>
+                <span class="text-base">{item.title}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Afternoon</h3>
+          <ul class="space-y-3">
+            {scheduleAfternoon.map((item) => (
+              <li class="flex items-start gap-4 rounded-md bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-700">
+                <span class="font-mono text-sm text-primary dark:text-blue-300 whitespace-nowrap pt-0.5">{item.time}</span>
+                <span class="text-base">{item.title}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organizers -->
+  <section id="organizers" class="scroll-mt-16 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 md:mb-12 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2">Organizers</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {organizers.map((o) => (
+          <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5">
+            <p class="font-semibold">{o.name}</p>
+            <p class="text-sm text-muted mt-1">{o.affiliation}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Program committee: hidden until after review process
+      <div class="mt-10">
+        <details class="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span>Program Committee</span>
+            <span class="text-sm text-muted group-open:hidden">Show</span>
+            <span class="text-sm text-muted hidden group-open:inline">Hide</span>
+          </summary>
+
+          <p class="text-sm text-muted mt-4">
+            We are grateful to our Program Committee for their time and expertise
+            in reviewing submissions to REO-2. Thank you.
+          </p>
+
+          <h4 class="font-semibold mt-6 mb-2">Expert Reviewers</h4>
+          <ul class="grid sm:grid-cols-2 gap-1 text-sm text-muted">
+            {programCommittee.map((pc) => <li>· <span class="text-gray-900 dark:text-gray-100 font-medium">{pc}</span></li>)}
+          </ul>
+
+          <h4 class="font-semibold mt-6 mb-2">Reviewers</h4>
+          <ul class="grid sm:grid-cols-2 gap-1 text-sm text-muted">
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+            <li>· <span class="italic">Reviewer name — TBD</span></li>
+          </ul>
+        </details>
+      </div>
+      */}
+
+      <!-- Contact -->
+      <div class="mt-12 text-center">
+        <h3 class="text-2xl font-bold mb-2">Contact</h3>
+        <p class="text-muted">
+          For questions about the workshop, reach out to
+          <a href="mailto:reo-workshop@example.org" class="text-primary underline">reo-workshop@example.org</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
