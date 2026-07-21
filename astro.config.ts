@@ -26,6 +26,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  redirects: {
+    '/': '/2026',
+  },
+
   integrations: [
     sitemap(),
     mdx(),
