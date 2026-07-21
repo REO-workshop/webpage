@@ -7,6 +7,7 @@ import campsImg from '~/assets/images/speakers2025/camps.png';
 import gottfriedsenImg from '~/assets/images/speakers2025/gottfriedsen.png';
 import lesauxImg from '~/assets/images/speakers2025/lesaux.png';
 import kariryaaImg from '~/assets/images/speakers2025/kariryaa.png';
+import ibmResearchLogo from '~/assets/images/logos/ibm_research.png';
 
 const speakers2025 = [
   { name: 'Michal Kazmierski', affiliation: 'Google DeepMind', image: kazmierskiImg },
@@ -414,7 +415,10 @@ const metadata = {
         Accepted contributions were presented as posters; authors could indicate interest in a
         10-minute oral talk.
       </p>
-
+      <p class="text-sm text-muted mt-4">
+        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.          
+      </p>
+      <br>
       <h3 class="text-xl font-bold mb-3">Timeline</h3>
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-left border-collapse">
@@ -456,33 +460,9 @@ const metadata = {
         <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2">Keynotes</h2>
       </div>
 
-      <!-- Top row: 3 speakers -->
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {speakers2025.slice(0, 3).map((s) => (
-          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
-            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
-              <Image
-                src={s.image}
-                alt={s.name}
-                width={600}
-                height={600}
-                layout="constrained"
-                widths={[300, 600, 900]}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                class="w-full h-full object-cover object-center"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="text-lg font-bold">{s.name}</h3>
-              <p class="text-sm text-primary dark:text-blue-300 font-medium">{s.affiliation}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Bottom row: 2 speakers centered -->
-      <div class="flex flex-wrap justify-center gap-6 mt-6">
-        {speakers2025.slice(3).map((s) => (
+      <!-- Speakers: centered, auto-wrapping (3 / 2 / 1 per row by breakpoint) -->
+      <div class="flex flex-wrap justify-center gap-6">
+        {speakers2025.map((s) => (
           <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
             <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
               <Image
@@ -605,17 +585,29 @@ const metadata = {
     </div>
   </section>
 
+  <!-- Sponsors -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 md:mb-10 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mt-2">Sponsors</h2>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        <img src={ibmResearchLogo.src} alt="IBM Research" class="h-12 w-auto" />
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section class="py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h3 class="text-2xl font-bold mb-3">Contact</h3>
       <p class="text-muted">
-        General inquiries: <a href="mailto:contact@eurips.cc" class="text-primary underline">contact@eurips.cc</a>
+        For questions about the workshop, reach out to
+        <a href="mailto:reo-workshop@googlegroups.com" class="text-primary underline">reo-workshop@googlegroups.com</a>.
       </p>
-      <p class="text-sm text-muted mt-4">
-        Submissions were handled via
-        <a href="https://cmt3.research.microsoft.com/REO2025/" target="_blank" rel="noopener" class="text-primary underline">Microsoft CMT</a>.
-        Peer review platform provided at no cost by Microsoft.
+      <p class="text-muted">
+        General inquiries: <a href="mailto:contact@eurips.cc" class="text-primary underline">contact@eurips.cc</a>
       </p>
     </div>
   </section>

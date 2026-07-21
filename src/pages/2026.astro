@@ -237,9 +237,21 @@ const metadata = {
         </div>
       </div>
 
+      <div class="mt-6 rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+        <h3 class="text-xl font-bold mb-2">Formatting Instructions</h3>
+        <p class="text-muted">
+          Submissions must follow the
+          <a href="https://neurips.cc/Conferences/2026/CallForPapers" class="text-primary underline">NeurIPS formatting guidelines</a>,
+          with the exception of the page limit: up to <strong>4 pages</strong> for the Research Track
+          and up to <strong>1 page</strong> for the Highlights Track summary (references and appendices
+          excluded). Please use our
+          <a href="#" class="text-primary underline">adapted LaTeX template</a>.
+        </p>
+      </div>
+
       <div class="mt-10 flex justify-center">
         <a
-          href="#"
+          href="https://cmt3.research.microsoft.com/REO2026"
           class="btn-primary py-3 px-8 font-semibold text-base"
         >
           Submission
@@ -276,10 +288,7 @@ const metadata = {
           </table>
         </div>
         <p class="text-sm text-muted mt-4">
-          In-person presentation is required.          
-        </p>
-        <p class="text-sm text-muted mt-4">
-          The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.          
+          In-person presentation is required. The best papers will be selected for oral presentations.
         </p>
       </div>
     </div>
@@ -296,34 +305,9 @@ const metadata = {
         </p>
       </div>
 
-      <!-- Top row: 3 speakers -->
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {speakers.slice(0, 3).map((s) => (
-          <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
-            <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
-              <Image
-                src={s.image}
-                alt={s.name}
-                width={600}
-                height={600}
-                layout="constrained"
-                widths={[300, 600, 900]}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                class="w-full h-full object-cover object-center"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="text-lg font-bold">{s.name}</h3>
-              <p class="text-sm text-primary dark:text-blue-300 font-medium mb-2">{s.affiliation}</p>
-              <p class="text-sm text-muted">{s.bio}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Bottom row: 2 speakers centered -->
-      <div class="flex flex-wrap justify-center gap-6 mt-6">
-        {speakers.slice(3).map((s) => (
+      <!-- Speakers: centered, auto-wrapping (3 / 2 / 1 per row by breakpoint) -->
+      <div class="flex flex-wrap justify-center gap-6">
+        {speakers.map((s) => (
           <div class="flex flex-col rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
             <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800">
               <Image
@@ -353,7 +337,7 @@ const metadata = {
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-10 md:mb-12 text-center">
         <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase">Program</p>
-        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2">Provisional Schedule</h2>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tighter mt-2">Provisional Schedule<span class="text-secondary dark:text-blue-200">*</span></h2>
         <p class="max-w-3xl mx-auto mt-4 text-xl text-muted">
           Keynotes, orals, two poster sessions, and a panel – 100% of talks in person.
         </p>
@@ -382,6 +366,12 @@ const metadata = {
             ))}
           </ul>
         </div>
+      </div>
+      
+      <div class="mb-10 md:mb-12 text-center">
+        <p class="max-w-3xl mx-auto mt-3 text-sm text-muted">
+          *The program is still being finalized and may change – please check back closer to the workshop day.
+        </p>
       </div>
     </div>
   </section>
@@ -439,9 +429,13 @@ const metadata = {
         <h3 class="text-2xl font-bold mb-2">Contact</h3>
         <p class="text-muted">
           For questions about the workshop, reach out to
-          <a href="mailto:reo-workshop@example.org" class="text-primary underline">reo-workshop@example.org</a>.
+          <a href="mailto:reo-workshop@googlegroups.com" class="text-primary underline">reo-workshop@googlegroups.com</a>.
         </p>
       </div>
+      <br>
+      <p class="text-sm text-muted">
+        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.          
+      </p>
     </div>
   </section>
 </Layout>

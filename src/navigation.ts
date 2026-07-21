@@ -11,7 +11,7 @@ export const headerData = {
   actions: [
     {
       text: 'Submit',
-      href: '#call-for-papers',
+      href: 'https://cmt3.research.microsoft.com/REO2026',
       variant: 'primary',
     },
   ],
