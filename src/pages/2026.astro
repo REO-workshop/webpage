@@ -238,16 +238,44 @@ const metadata = {
       </div>
 
       <div class="mt-6 rounded-lg border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
-        <h3 class="text-xl font-bold mb-2">Formatting Instructions</h3>
-        <p class="text-muted">
-          Submissions must follow the
-          <a href="https://neurips.cc/Conferences/2026/CallForPapers" class="text-primary underline">NeurIPS formatting guidelines</a>,
-          with the exception of the page limit: up to <strong>4 pages</strong> for the Research Track
-          and up to <strong>1 page</strong> for the Highlights Track summary (references and appendices
-          excluded). Please use our
-          <a href="https://neurips.cc/Conferences/2026/CallForPapers" class="text-primary underline">adapted LaTeX template</a>.
-        </p>
+        <details class="group">
+          <summary class="cursor-pointer flex items-center justify-between">
+            <h3 class="text-xl font-bold">Formatting Instructions</h3>
+            <span class="text-sm text-muted group-open:hidden">Show</span>
+            <span class="text-sm text-muted hidden group-open:inline">Hide</span>
+          </summary>
+          <p class="text-muted mt-4">
+            Submissions must follow the
+            <a href="https://neurips.cc/Conferences/2026/CallForPapers" class="text-primary underline">NeurIPS formatting guidelines</a>,
+            with the exception of the page limit: up to <strong>4 pages</strong> for the Research Track
+            and up to <strong>1 page</strong> for the Highlights Track summary (references and appendices
+            excluded). Please use the offical
+            <a href="https://www.overleaf.com/latex/templates/formatting-instructions-for-neurips-2026/bjdwqfdkyftc" class="text-primary underline">NeurIPS LaTeX template</a>.
+          </p>
+          <p class="text-muted mt-4">
+            When using the template, please adjust the following:
+          </p>
+          <ul class="text-muted mt-2 space-y-2 list-disc pl-5">
+            <li>
+              Set the workshop title:<br />
+              <code class="text-sm">{'\\workshoptitle{2nd Workshop on Advances in Representation Learning for Earth Observation}'}</code>
+            </li>
+            <li>
+              For a Research Track submission (novel work), uncomment the double-blind reviewing option ("6. Workshop with double-blind reviewing"):<br />
+              <code class="text-sm">{'\\usepackage[dblblindworkshop]{neurips_2026}'}</code>
+            </li>
+            <li>
+              For a Highlights Track submission (published work), uncomment the single-blind reviewing option ("5. Workshop with single-blind reviewing"):<br />
+              <code class="text-sm">{'\\usepackage[sglblindworkshop]{neurips_2026}'}</code>
+            </li>
+            <li>
+              For the camera-ready paper, uncomment the final option, e.g.<br/>
+              <code class="text-sm">{'\\usepackage[dblblindworkshop, final]{neurips_2026}'}</code>
+            </li>
+          </ul>
+        </details>
       </div>
+
 
       <div class="mt-10 flex justify-center">
         <a
